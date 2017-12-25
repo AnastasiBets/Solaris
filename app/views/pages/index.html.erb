@@ -1,0 +1,61 @@
+<style type="text/css">
+	.post-header{
+		display: flex;
+		justify-content: space-between;
+		background-color: #333;
+		color: white;
+		align-items: center;
+		padding-right: 15px;
+		margin: 5	px 0;	
+	}
+
+	h2 {
+		margin-top: 30px;
+	}
+
+	h2>a,h2>a:visited{
+		color: orange;
+		transition: all 400ms
+
+	}
+	h2>a:hover{
+		color: white;
+		font-size: 30px
+	}
+
+	div.img-show {
+		margin: 10px 0 5px 50px;
+	}
+
+</style>
+
+
+<% @posts.each do |post| %>
+
+ 	<div class="content-text col-md-10">
+
+		<h2><%= link_to post.title , post_path(post.id)%></h2>
+		<div class="post-header">
+
+			<div><%= image_tag post.user.avatar.url, width: 30, height: 30 %>
+				
+				Author:  <%= post.user.nickname %> 
+			</div>
+			<div>
+			Created at:<%= post.created_at %>
+			<% if current_user != nil and current_user.id == post.user_id %>
+			  |
+			  <%= link_to "Edit", edit_post_path(post.id) %>
+			  |
+			  <%= link_to "Delete", post_path(post.id), data: {confirm: 'Are you sure?'}, method: :delete %>
+			<% end %>
+			</div>
+			
+		</div>
+			<div class="img-show">
+			<%= image_tag post.photo.url, width: '90%', height: 300 if post.photo? %></div>
+			<%= sanitize(post.body) %>
+	</div>
+ <% end %>
+
+

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Solaris</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <style>
+    /* Design by http://www.dreamtemplate.com */
+@charset "utf-8";
+body {
+  margin:0;
+  padding:0;
+  width:100%;
+  color:#cccccc;
+  font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+  background:#555 repeat-x left top;
+}
+html, .main {
+  padding:0;
+  margin:0;
+}
+
+.clr {
+  clear:both;
+  padding:0;
+  margin:0;
+  width:100%;
+  font-size:0;
+  line-height:0;
+}
+h2 {
+  margin:8px 0;
+  padding:8px 0;
+  font-size:25px;
+  font-weight:normal;
+  color:#353c46;
+}
+p {
+  margin:8px 0;
+  padding:0 0 8px 0;
+}
+a {
+  color:#ffee5f;
+  text-decoration:underline;
+}
+.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbar, .content .sidebar {
+  margin:0;
+  padding:0;
+}
+
+.header_resize {
+  margin:0 auto;
+  padding:0;
+  width:960px;
+}
+.logo {
+  margin:0;
+  padding:0;
+  float:left;
+  width:auto;
+  height:146px;
+}
+h1 {
+  margin:0;
+  padding:40px 0 0;
+  font-size:60px;
+  font-weight:normal;
+  line-height:1.2em;
+  text-transform:none;
+  text-align:left;
+}
+h1 a, h1 a:hover {
+  color:#fff;
+  text-decoration:none;
+}
+h1 span {
+}
+h1 small {
+  display:block;
+  margin:-8px 0;
+  font-size:32px;
+  line-height:1.2em;
+  letter-spacing:normal;
+  text-transform:none;
+  color:#fff;
+}
+
+.menu_nav {
+  margin:0 auto;
+  padding:0;
+  height:54px;
+  float:right;
+}
+.menu_nav ul {
+  list-style:none;
+  padding:0;
+  height:54px;
+  float:left;
+}
+.menu_nav ul li {
+  margin:0;
+  padding:0;
+  float:left;
+}
+.menu_nav ul li a {
+  display:block;
+  margin:0;
+  padding:16px 0 0;
+  width:192px;
+  height:54px;
+  font-size:24px;
+  line-height:30px;
+  font-weight:normal;
+  color:#fff;
+  text-decoration:none;
+  text-transform:none;
+  text-align:center;
+  background:none;
+}
+.menu_nav ul li.active a, .menu_nav ul li a:hover {
+  text-decoration:none;
+  color:#fff;
+  background:#ffc53c;
+}
+.content {
+  padding:0;
+}
+.content_resize {
+  margin:0 auto;
+  padding:18px 0;
+  width:960px;
+}
+.content .mainbar {
+  margin:0;
+  padding:0 0 0 20px;
+  float:left;
+  width:620px;
+}
+.content .mainbar h2 {
+  margin-bottom:0;
+  padding-bottom:0;
+  font-size:25px;
+  line-height:1.2em;
+  color:#fff;
+}
+.content .mainbar div.img {
+  padding:12px 0;
+  float:left;
+}
+.content .mainbar img {
+}
+.content .mainbar img.fl {
+  margin:0;
+  padding:0;
+  background:#fff;
+  border:none;
+}
+.content .mainbar .post_content {
+}
+.content .mainbar .post_content strong {
+  color:#c7c7c7;
+}
+.content .sidebar {
+  padding:0;
+  float:right;
+  width:260px;
+}
+.content .sidebar .gadget {
+  margin:0 0 12px;
+  padding:8px 20px 24px;
+}
+.content .sidebar h2 {
+  color:#fff;
+  text-transform:none;
+}
+ul.sb_menu, ul.ex_menu {
+  margin:0;
+  padding:0;
+  list-style:none;
+  color:#929292;
+}
+ul.sb_menu li, ul.ex_menu li {
+  margin:0;
+}
+ul.sb_menu li {
+  padding:8px 0;
+  width:220px;
+}
+ul.ex_menu li {
+  padding:4px 0;
+}
+ul.sb_menu li a {
+  color:#929292;
+  text-decoration:none;
+  margin-left:-16px;
+  padding:4px 8px 4px 16px;
+}
+ul.ex_menu li a {
+  font-weight:bold;
+  color:#c7c7c7;
+  text-decoration:none;
+}
+ul.sb_menu li a:hover, ul.ex_menu li a:hover {
+  color:#ffee5f;
+  font-weight:bold;
+  text-decoration:underline;
+}
+p.spec {
+  padding:0 0 16px;
+}
+p.infopost {
+  margin-bottom:0;
+  padding:8px 12px;
+  color:#929292;
+  background:#494949;
+}
+p.infopost a {
+  padding:0 2px;
+  color:#ffee5f;
+  text-decoration:underline;
+}
+.content .mainbar a.com {
+  margin:-8px -12px;
+  padding:8px 12px;
+  float:right;
+  font-weight:normal;
+  text-decoration:none;
+  color:#8b8b8b;
+  background:#1b1b1b;
+}
+.content .mainbar a.com:hover {
+  text-decoration:none;
+}
+.content .mainbar a.com span {
+  padding-left:4px;
+  font-weight:bold;
+  color:#ffee5f;
+}
+.content .mainbar a.rm {
+  float:right;
+  margin:0 0 16px;
+  padding:0;
+  font-weight:normal;
+  text-transform:lowercase;
+  color:#ffee5f;
+  text-decoration:underline;
+  text-align:center;
+  background:none;
+}
+.content p.pages {
+  margin:0;
+  padding:24px 0;
+  font-size:11px;
+  color:#929292;
+  text-align:left;
+}
+.content p.pages span, .content p.pages a {
+  padding:8px 12px;
+  text-decoration:none;
+  background:none;
+}
+.content p.pages span, .content p.pages a:hover {
+  color:#929292;
+  background:#3b3b3b;
+}
+.content p.pages a {
+  color:#929292;
+}
+.content p.pages small {
+  font-size:12px;
+  float:right;
+}
+.content .mainbar .comment {
+  margin:0;
+  padding:16px 0 0 0;
+}
+.content .mainbar .comment img.userpic {
+  border:1px solid #dedede;
+  margin:10px 16px 0 0;
+  padding:0;
+  float:left;
+}
+.fbg {
+  background:#555 repeat-x left bottom;
+}
+.fbg_resize {
+  margin:0 auto;
+  width:920px;
+  padding:16px 20px;
+  color:#6e6e6e;
+  background:#fff;
+}
+.fbg h2 {
+  color:#3f3f3f;
+  padding-bottom:24px;
+}
+.fbg img.gal {
+  margin:0 8px 8px 0;
+  padding:0;
+  border:none;
+}
+.fbg .col {
+  margin:0;
+  float:left;
+}
+.fbg .c1 {
+  padding:0 16px 0 0;
+  width:280px;
+}
+.fbg .c2 {
+  padding:0 36px 0 16px;
+  width:280px;
+}
+.fbg .c3 {
+  padding:0 0 0 16px;
+  width:274px;
+}
+.fbg .fbg_ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.fbg .fbg_ul li {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.fbg .fbg_ul li a:hover {
+  color:#ffa41a;
+  text-decoration:underline;
+}
+.fbg p.contact_info {
+  line-height:1.8em;
+}
+.fbg p.contact_info a {
+  color:#ffa41a;
+  text-decoration:underline;
+}
+.fbg p.contact_info span {
+  display:block;
+  float:left;
+  width:74px;
+  font-weight:bold;
+  color:#3f3f3f;
+}
+ol {
+  list-style:none;
+}
+ol li {
+  display:block;
+  clear:both;
+}
+ol li label {
+  display:block;
+  margin:0;
+  padding:16px 0 0 0;
+}
+ol li input.text {
+  width:480px;
+  border:1px solid #c0c0c0;
+  margin:0;
+  padding:5px 2px;
+  height:16px;
+  background-color:#fff;
+}
+ol li textarea {
+  width:480px;
+  border:1px solid #c0c0c0;
+  margin:0;
+  padding:2px;
+  background-color:#fff;
+}
+ol li .send {
+  margin:16px 0 0 0;
+}
+
+a {
+  outline:none;
+}
+.clearfix:after, .clearfix:before{
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearfix{
+  background-color: #3b3b3b;
+}
+.header{
+  background-color: #ffc53c;
+  text-align: center;
+  max-height: 450px;
+  margin-bottom: 200px;
+}
+  img{
+    max-width: 150%;
+  }
+  .img{
+    transform: translateY(15px);
+    height: 450px;
+    border: 4px solid white;
+  }
+
+  .content {
+    float: left;
+  }
+
+  .sidebar {
+    float: left;
+    margin-top: 55px;
+  }
+
+  .footer{
+    font-size: 15px;
+    background:#ffc63d url(footer_bg.gif) repeat-x left bottom;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+  }
+
+
+  </style>
+
+  <body>
+
+<div class="main">
+  <div class="header">
+        <div class="menu_nav col-lg-12 clearfix">
+          <ul>
+            <li><%= link_to 'Головна сторінка', root_path %></li>
+            <li><%= link_to 'Галерея', photos_path %></li>
+            <li><%= link_to 'Про сайт', pages_about_path %></li>
+            <li><%= link_to 'Контакти', pages_contacts_path %></li>
+
+        <% if user_signed_in? %>
+            <li class="nav-item " style="margin-left: 331px">
+              <%=link_to "Вихід", destroy_user_session_path, method:  :delete, class: "nav-link" %>
+            </li>
+        <% else %>
+            <li class="nav-item" style="margin-left: 139px">
+              <%= link_to "Вхід", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Реєстрація", new_user_registration_path, class: "nav-link" %>
+            </li>
+        <% end %>
+          </ul> 
+      </div>
+    <div class="header_resize">
+      <div class="clr"></div>
+      <div class="logo">
+        <h1 style="color: black">Solaris<span>SunSystems</span> <small>Принесемо тепло у кожен дім</small></h1>
+      </div>
+        <img src="https://cdni.rt.com/files/news/2f/a7/40/00/10.si.jpg" class="img">
+      <div class="clr"></div>
+      </div>
+    </div>
+
+      
+
+    <div class="container col-md-12">
+      <div class="content col-md-10">
+        <%= yield %>
+      </div>
+        <div class="sidebar col-md-2">
+          <h2><b>Сайд-бар</b></h2>
+          <ul style="font-size: 15px">
+            <li><%= link_to 'Головна', root_path %></li>
+            <li><%= link_to 'Cпонсори', pages_sponsors_path %></li>
+            <li><%= link_to 'Галерея', photos_path %></li>
+          </ul>
+          <br>
+        </div>
+        <%= link_to 'Cтворити новину', new_post_path, class: 'btn btn-info' %>
+      </div>  
+
+  <div class="footer col-md-12">
+    Created by Ansatasia Betsa
+  </div>
+
+  </body>
+</html>

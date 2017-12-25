@@ -1,0 +1,28 @@
+
+	<h3>
+		Завантажуйте фотографії ваших сонячних систем
+		<%= link_to "Завантажити фотографію", new_photo_path , class: "btn btn-default"%>
+	</h3>
+	
+
+<% if @photos == [] %>
+	There is no photos yet.
+<% else %>
+	<% @photos.each do |photo| %>
+	<div class="col-md-4">
+	<%= image_tag photo.photo_url, width: 250, height: 200 %>
+	<p><%= photo.name %></p>
+	<p><b>Категорія: </b><%= photo.category.name %></p>
+	<p>Зображення завантажено: </b><%= photo.user.nickname %></p>
+
+	<p>  
+		<% if current_user != nil and current_user.id == photo.user_id %>
+		<%= link_to "Delete", photo_path(photo.id), data: {confim: 'Are you sure?'}, method: :delete %>
+		
+	<% end %>
+	</p>
+	<p><a href="<%= vote_photo_path(photo.id) %>"><%= image_tag("/image/like.png", width: '20px') %></a>
+	(<%= @like[photo.id] %>)</p>
+ 	</div>
+	<% end %>
+<% end %> 		
